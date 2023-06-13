@@ -18,9 +18,5 @@
             </div>
         </div>
     </div>
-    #@if(session()->has('success'))
-         <div class="alert-primary">
-             <p>{{ session('success') }}</p>
-         </div>
-    @endif
+
 @endsection
