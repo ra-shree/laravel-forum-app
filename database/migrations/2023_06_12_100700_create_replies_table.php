@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('replies', function (Blueprint $table) {
             $table->id();
             $table->text('content');
-            $table->unsignedInteger('comment_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('comment_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('comment_id')->references('id')->on('comments');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
