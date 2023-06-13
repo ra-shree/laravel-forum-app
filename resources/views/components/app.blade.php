@@ -11,7 +11,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Home</a>
+        <a class="navbar-brand" href="/">Home</a>
 
         <form class="form-inline my-2 my-lg-0 mx-auto d-flex gap-2">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -19,8 +19,8 @@
         </form>
 
         <div class="navbar-nav ml-auto">
-            <a class="nav-link" href="#">Login</a>
-            <a class="nav-link" href="#">Register</a>
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/register">Register</a>
         </div>
     </div>
 </nav>
