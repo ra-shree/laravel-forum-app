@@ -17,11 +17,21 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        @auth
+            <div class="navbar-nav ml-auto d-flex gap-2">
+                <div class="text-bg-primary">{{ auth()->user()->name }}</div>
+                <form action="/logout" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">Logout</button>
+                </form>
 
+            </div>
+        @else
         <div class="navbar-nav ml-auto">
             <a class="nav-link" href="/login">Login</a>
             <a class="nav-link" href="/register">Register</a>
         </div>
+        @endauth
     </div>
 </nav>
 <main>
