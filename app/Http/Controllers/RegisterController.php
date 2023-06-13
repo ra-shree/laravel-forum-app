@@ -21,8 +21,9 @@ class RegisterController
             'password' => ['required', 'min:8', 'max:255', 'confirmed'],
         ]);
 
-        User::create($attribute);
+        $user = User::create($attribute);
 //        session()->flash('success', 'Your account has been created.');
+        Auth::login($user);
 
         return redirect('/login')->with('success', 'Your account has been created.');
     }
