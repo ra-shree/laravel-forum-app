@@ -2,17 +2,17 @@
     <div class="card-body">
         <div class="row align-items-center">
             <div class="col-8">
-                <h6 class="card-title">aarya</h6>
+                <h6 class="card-title">{{ $comments->user->name }}</h6>
             </div>
             <div class="col-4">
-                <p class="card-subtitle text-muted">June 15, 2023 10:30 AM</p>
+                <p class="card-subtitle text-muted">{{ $comments->created_at }}</p>
             </div>
         </div>
-        <p class="card-text">Some main comment</p>
+        <p class="card-text">{{ $comments->content }}</p>
         <a href="#" class="card-link text-muted reply-link">Reply</a>
     </div>
-    @for ($i = 0; $i < 3; $i++)
-        @include('replies')
-    @endfor
+    @foreach ($comments->replies as $reply)
+        @include('replies', $reply)
+    @endforeach
 </div>
 
