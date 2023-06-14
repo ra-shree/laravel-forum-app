@@ -12,7 +12,7 @@
         <a href="#" class="card-link text-muted reply-link">Reply</a>
     </div>
     @foreach ($comments->replies as $reply)
-        @include('replies', $reply)
+        @include('post.replies', $reply)
     @endforeach
 </div>
 
