@@ -3,8 +3,9 @@
     <form action="/comment" method="POST">
         @csrf
         <div class="mb-3">
+            <input type="hidden" name="post_id" value="{{ $id }}"/>
             <label for="commentInput" class="form-label">Your Comment</label>
-            <textarea class="form-control" id="commentInput" rows="3" required></textarea>
+            <textarea class="form-control" id="commentInput" name="content" rows="3" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
