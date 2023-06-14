@@ -31,4 +31,14 @@ class User extends Authenticate
     {
         return $this->hasMany(Post::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
 }

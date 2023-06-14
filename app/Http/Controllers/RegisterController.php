@@ -23,7 +23,7 @@ class RegisterController
 
         $user = User::create($attribute);
 //        session()->flash('success', 'Your account has been created.');
-        Auth::login($user);
+        auth()->login($user);
 
         return redirect('/login')->with('success', 'Your account has been created.');
     }
