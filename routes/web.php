@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,11 +17,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home.home', [
+        'posts' => Post::all()
+    ]);
 });
 
-Route::get('/post', function () {
-    return view('post');
+//Route::get('/post', function () {
+//    return view('post');
+//});
+
+Route::get('/post/{post}', function (Post $post) {
+    return view('post', [
+        'post' => $post
+    ]);
 });
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
