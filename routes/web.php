@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Models\Post;
@@ -27,7 +29,7 @@ Route::get('/', function () {
 //});
 
 Route::get('/post/{post}', function (Post $post) {
-    return view('post', [
+    return view('post.post', [
         'post' => $post
     ]);
 });
@@ -39,3 +41,8 @@ Route::get('/login', [SessionsController::class, 'create'])->middleware('guest')
 Route::post('/login', [SessionsController::class, 'store'])->middleware('guest');
 
 Route::post('/logout', [SessionsController::class, 'destroy']);
+
+Route::get('/post', [PostController::class, 'create'])->middleware('auth');
+Route::post('/post', [PostController::class, 'store'])->middleware('auth');
+
+Route::post('/comment', [CommentController::class, 'create']);
