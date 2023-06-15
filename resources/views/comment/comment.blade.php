@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="row align-items-center">
             <div class="col-8">
-                <h6 class="card-title"change>
+                <h6 class="card-title" change>
                     @if($comments->user?->name === null)
                         Guest
                     @else
@@ -15,13 +15,13 @@
             </div>
         </div>
         <p class="card-text">{{ $comments->content }}</p>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#reply"
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#reply{{ $comments->id }}"
                 aria-expanded="false" aria-controls="reply">
             Reply
         </button>
-        @include('post.add_reply')
+        @include('reply.create', ['id' => $comments->id])
     </div>
     @foreach ($comments->replies as $reply)
-        @include('post.replies', $reply)
+        @include('reply.reply', $reply)
     @endforeach
 </div>

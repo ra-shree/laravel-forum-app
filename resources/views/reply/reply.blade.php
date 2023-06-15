@@ -3,7 +3,13 @@
     <div class="card-body">
         <div class="row align-items-center">
             <div class="col-8">
-                <h6 class="card-title">{{ $reply->user->name }}</h6>
+                <h6 class="card-title">
+                    @if($reply->user?->name === null)
+                        Guest
+                    @else
+                        {{ $reply->user->name }}
+                    @endif
+                </h6>
             </div>
             <div class="col-4">
                 <p class="card-subtitle text-muted">{{ $reply->created_at }}</p>
