@@ -6,5 +6,9 @@
                 @include('home.post_card', $post)
             @endforeach
         </div>
+{{--        <br>--}}
+        <footer class="container d-flex justify-content-center pt-2">
+            {{ $posts->links() }}
+        </footer>
     </div>
 @endsection
