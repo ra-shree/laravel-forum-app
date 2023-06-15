@@ -4,10 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
+    public function index()
+    {
+        return view('home.index', [
+            'posts' => Post::with('user')->paginate(10)
+        ]);
+    }
+
+    public function show($id)
+    {
+//        $post = Post::find($id);
+        $post = Post::with('comments.replies', 'comments.user','comments.replies.user')->find($id);
+        return view('post.post', [
+            'post'=> $post
+        ]);
+    }
+
     public function create()
     {
         return view('post.create');
