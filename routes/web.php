@@ -26,7 +26,7 @@ Route::post('/register', [RegisterController::class, 'store'])->middleware('gues
 Route::get('/login', [SessionsController::class, 'create'])->middleware('guest');
 Route::post('/login', [SessionsController::class, 'store'])->middleware('guest');
 
-Route::get('/', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/post/{id}', [PostController::class, 'show']);
 Route::get('/post', [PostController::class, 'create'])->middleware('auth');
 Route::post('/post', [PostController::class, 'store'])->middleware('auth');

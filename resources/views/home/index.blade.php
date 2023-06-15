@@ -8,7 +8,7 @@
         </div>
 {{--        <br>--}}
         <footer class="container d-flex justify-content-center pt-2">
-            {{ $posts->links() }}
+            {{ $posts->appends(['search' => request('search')])->links() }}
         </footer>
     </div>
 @endsection

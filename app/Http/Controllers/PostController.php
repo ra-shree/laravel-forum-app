@@ -9,14 +9,15 @@ class PostController extends Controller
 {
     public function index()
     {
+        $posts = Post::with('user')->filter(request(['search']))->paginate(10);
+
         return view('home.index', [
-            'posts' => Post::with('user')->paginate(10)
+            'posts' => $posts
         ]);
     }
 
     public function show($id)
     {
-//        $post = Post::find($id);
         $post = Post::with('comments.replies', 'comments.user','comments.replies.user')->find($id);
         return view('post.post', [
             'post'=> $post
