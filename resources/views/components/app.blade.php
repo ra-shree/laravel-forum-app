@@ -11,7 +11,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Home</a>
+        <a class="navbar-brand" href="{{ route('home') }}">Home</a>
         @if(auth()->check() && ! request()->is('post'))
             <a href="{{ route('post.create') }}">
             <button type="submit" class="btn btn-success">Create Post</button>
