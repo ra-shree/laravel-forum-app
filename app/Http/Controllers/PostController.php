@@ -16,9 +16,18 @@ class PostController extends Controller
         ]);
     }
 
+    public function orderByDesc($query)
+    {
+        return $query->orderByDesc('created_at');
+    }
+
     public function show($id)
     {
-        $post = Post::with('comments.replies', 'comments.user','comments.replies.user')->find($id);
+        $post = Post::with(['comments'=> fn($query) => self::orderByDesc($query),
+            'comments.replies' => fn($query) => self::orderByDesc($query),
+            'comments.user',
+            'comments.replies.user'])
+            ->find($id);
         return view('post.post', [
             'post'=> $post
         ]);
