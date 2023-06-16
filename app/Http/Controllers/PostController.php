@@ -42,6 +42,6 @@ class PostController extends Controller
         $attributes['user_id'] = $user->id;
         $post = Post::create($attributes);
 
-        return redirect("/post/$post->id");
+        return redirect()->route('post.show', ['id' => $post->id]);
     }
 }

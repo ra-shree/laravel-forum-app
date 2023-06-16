@@ -17,6 +17,7 @@ class Post extends Model
                 ->where('title', 'ilike', '%'.request('search').'%')
                 ->orWhere('body', 'ilike', '%'.request('search').'%');
         }
+        $query->orderByDesc('created_at');
     }
 
     public function user()
