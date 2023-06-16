@@ -1,5 +1,5 @@
 <section class="collapse" id="reply{{ $id }}">
-    <form action="/reply" method="POST">
+    <form action="{{ route('reply.create') }}" method="POST">
         @csrf
         <div class="mb-3 mt-3">
             <h5 class="mt-4">Reply</h5>

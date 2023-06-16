@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <h2 class="mt-4">Register</h2>
-                <form method="POST" action="/register">
+                <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Full Name</label>
@@ -33,12 +33,6 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Register</button>
                 </form>
-
-{{--                <ul>--}}
-{{--                    @foreach($errors->all() as $error)--}}
-{{--                        <li>{{ $error }}</li>--}}
-{{--                    @endforeach--}}
-{{--                </ul>--}}
             </div>
         </div>
     </div>

@@ -20,24 +20,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+Route::get('/register', [RegisterController::class, 'create'])->name('registerForm')->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->name('register')->middleware('guest');
 
-Route::get('/login', [SessionsController::class, 'create'])->middleware('guest');
-Route::post('/login', [SessionsController::class, 'store'])->middleware('guest');
+Route::get('/login', [SessionsController::class, 'create'])->name('loginForm')->middleware('guest');
+Route::post('/login', [SessionsController::class, 'store'])->name('login')->middleware('guest');
 
 Route::get('/', [PostController::class, 'index'])->name('home');
-Route::get('/post/{id}', [PostController::class, 'show']);
-Route::get('/post', [PostController::class, 'create'])->middleware('auth');
-Route::post('/post', [PostController::class, 'store'])->middleware('auth');
+Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
+Route::get('/post', [PostController::class, 'create'])->name('post.create')->middleware('auth');
+Route::post('/post', [PostController::class, 'store'])->name('post.store')->middleware('auth');
 //Route::get('/post/{post}', function (Post $post) {
 //    return view('post.post', [
 //        'post' => $post
 //    ]);
 //});
 
-Route::post('/logout', [SessionsController::class, 'destroy']);
+Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
 
-Route::post('/comment', [CommentController::class, 'create']);
+Route::post('/comment', [CommentController::class, 'create'])->name('comment.create');
 
-Route::post('/reply', [ReplyController::class, 'create']);
+Route::post('/reply', [ReplyController::class, 'create'])->name('reply.create');

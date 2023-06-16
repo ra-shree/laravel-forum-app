@@ -13,11 +13,11 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Home</a>
         @if(auth()->check() && ! request()->is('post'))
-            <a href="/post">
+            <a href="{{ route('post.create') }}">
             <button type="submit" class="btn btn-success">Create Post</button>
             </a>
         @endif
-        <form action="/" method="GET" class="form-inline my-2 my-lg-0 mx-auto d-flex gap-2">
+        <form action="{{ route('home') }}" method="GET" class="form-inline my-2 my-lg-0 mx-auto d-flex gap-2">
             <input type="text"
                    class="form-control mr-sm-2"
                    name="search" placeholder="Search" aria-label="Search" value="{{ request('search') }}">
@@ -26,7 +26,7 @@
         @auth
             <div class="navbar-nav ml-auto d-flex gap-2">
                 <div class="text-bg-primary">{{ auth()->user()->name }}</div>
-                <form action="/logout" method="POST">
+                <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-primary">Logout</button>
                 </form>
@@ -34,8 +34,8 @@
             </div>
         @else
         <div class="navbar-nav ml-auto">
-            <a class="nav-link" href="/login">Login</a>
-            <a class="nav-link" href="/register">Register</a>
+            <a class="nav-link" href="{{ route('loginForm') }}">Login</a>
+            <a class="nav-link" href="{{ route('registerForm') }}">Register</a>
         </div>
         @endauth
     </div>

@@ -6,7 +6,7 @@
 </style>
 
 <div class="col-md-8 offset-md-2">
-    <a href="\post\{{ $post->id }}">
+    <a href="{{ route('post.show', ['id' => $post->id]) }}">
         <div style="cursor: pointer" class="post-card card">
             <div class="card-body">
                 <h5 class="card-title">{{ $post->title }}</h5>

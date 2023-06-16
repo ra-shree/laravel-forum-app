@@ -2,7 +2,7 @@
 @section('content')
     <div class="container justify-content-center al mt-3 d-flex flex-column gap-2" style="width: 40%">
     <h2 class="text">Create a Post</h2>
-    <form action="/post" method="POST">
+    <form action="{{ route('post.create') }}" method="POST">
         @csrf
         <div class="mb-3">
             <label for="titleInput" class="form-label">Title</label>
