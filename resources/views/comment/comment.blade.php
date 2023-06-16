@@ -11,7 +11,7 @@
                 </h6>
             </div>
             <div class="col-4">
-                <p class="card-subtitle text-muted">{{ $comments->created_at }}</p>
+                <p class="card-subtitle text-muted">{{ Carbon\Carbon::parse($comments->created_at)->diffForHumans() }}</p>
             </div>
         </div>
         <p class="card-text">{{ $comments->content }}</p>

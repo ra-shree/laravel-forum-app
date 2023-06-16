@@ -30,11 +30,7 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
 Route::get('/post', [PostController::class, 'create'])->name('post.create')->middleware('auth');
 Route::post('/post', [PostController::class, 'store'])->name('post.store')->middleware('auth');
-//Route::get('/post/{post}', function (Post $post) {
-//    return view('post.post', [
-//        'post' => $post
-//    ]);
-//});
+//3694274942cd80ee934766cfc7bdb4cc
 
 Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
 

@@ -12,7 +12,7 @@
                 </h6>
             </div>
             <div class="col-4">
-                <p class="card-subtitle text-muted">{{ $reply->created_at }}</p>
+                <p class="card-subtitle text-muted">{{ Carbon\Carbon::parse($reply->created_at)->diffForHumans() }}</p>
             </div>
         </div>
         <p class="card-text">{{ $reply->content }}</p>
