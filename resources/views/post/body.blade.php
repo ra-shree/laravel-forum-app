@@ -6,9 +6,6 @@
             {{ $post->body }}
         </p>
         <hr>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comment"
-                aria-expanded="false" aria-controls="comment">
-            Comment
-        </button>
+        @include('comment.create', [ 'id' => $post->id])
     </div>
 </article>

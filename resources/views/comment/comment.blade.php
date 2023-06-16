@@ -15,7 +15,7 @@
             </div>
         </div>
         <p class="card-text">{{ $comments->content }}</p>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#reply{{ $comments->id }}"
+        <button class="btn btn-primary w-auto" type="button" data-bs-toggle="collapse" data-bs-target="#reply{{ $comments->id }}"
                 aria-expanded="false" aria-controls="reply">
             Reply
         </button>

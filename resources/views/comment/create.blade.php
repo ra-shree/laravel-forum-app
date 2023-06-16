@@ -1,4 +1,4 @@
-<section class="collapse" id="comment">
+<section id="comment">
     <h3 class="mt-4">Leave a Comment</h3>
     <form action="{{ route('comment.create') }}" method="POST">
         @csrf
