@@ -14,8 +14,8 @@ class Post extends Model
     {
         if ($filters['search'] ?? false) {
             $query
-                ->where('title', 'like', '%'.request('search').'%')
-                ->orWhere('body', 'like', '%'.request('search').'%');
+                ->where('title', 'ilike', '%'.request('search').'%')
+                ->orWhere('body', 'ilike', '%'.request('search').'%');
         }
     }
 
