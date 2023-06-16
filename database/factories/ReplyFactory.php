@@ -19,7 +19,7 @@ class ReplyFactory extends Factory
     public function definition(): array
     {
         return [
-            'content' => $this->faker->sentence(12),
+            'content' => $this->faker->paragraph(2),
             'comment_id' => Comment::factory(),
             'user_id' => User::factory(),
         ];
