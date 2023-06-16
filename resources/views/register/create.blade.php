@@ -10,21 +10,21 @@
                         <label for="name" class="form-label">Full Name</label>
                         <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
                         @error('name')
-                        <p>{{ $message }}</p>
+                        <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
                         <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}" required>
                         @error('email')
-                        <p>{{ $message }}</p>
+                        <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" name="password" id="password" required>
                         @error('password')
-                        <p>{{ $message }}</p>
+                        <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="mb-3">
