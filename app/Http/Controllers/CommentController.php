@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rule;
 
 class CommentController extends Controller
 {
-    public function create()
+    public function create(): RedirectResponse
     {
         $attributes = request()->validate([
             'post_id' => ['required', Rule::exists('posts', 'id')],

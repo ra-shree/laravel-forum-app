@@ -26,7 +26,6 @@ class User extends Authenticate
     public function setPasswordAttribute($password): void
     {
         $this->attributes['password'] = (!Hash::needsRehash($password)) ? $password : bcrypt($password);
-//        $this->attributes['password'] = bcrypt($password);
     }
 
     public function posts(): hasMany

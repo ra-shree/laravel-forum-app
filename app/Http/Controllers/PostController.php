@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Contracts\View\View;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $posts = Post::with('user')->filter(request(['search']))->paginate(10);
 
@@ -20,7 +21,7 @@ class PostController extends Controller
         return $query->orderByDesc('created_at');
     }
 
-    public function show(int $id)
+    public function show(int $id): View
     {
         $post = Post::with(['comments'=> fn($query) => self::orderByDesc($query),
             'comments.replies' => fn($query) => self::orderByDesc($query),

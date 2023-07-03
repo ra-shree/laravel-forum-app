@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reply;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rule;
 
 class ReplyController extends Controller
 {
-    public function create()
+    public function create(): RedirectResponse
     {
         $attributes = request()->validate([
             'comment_id' => ['required', Rule::exists('comments', 'id')],

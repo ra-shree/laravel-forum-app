@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class RegisterController
 {
-    public function create()
+    public function create(): View
     {
         return view('register.create');
     }
 
-    public function store()
+    public function store(): RedirectResponse
     {
         $attribute = request()->validate([
             'name' => ['required', 'max:255'],
