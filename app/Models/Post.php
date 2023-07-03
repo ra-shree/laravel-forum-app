@@ -2,15 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Post extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-    public function scopeFilter($query, array $filters) // Post::newQuery()->filter
+    public function scopeFilter($query, array $filters): Builder // Post::newQuery()->filter
     {
         if ($filters['search'] ?? false) {
             $query
@@ -20,12 +23,12 @@ class Post extends Model
         $query->orderByDesc('created_at');
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function comments()
+    public function comments(): hasMany
     {
         return $this->hasMany(Comment::class);
     }

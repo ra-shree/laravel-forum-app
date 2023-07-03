@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticate;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticate;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticate
@@ -27,17 +27,17 @@ class User extends Authenticate
         $this->attributes['password'] = bcrypt($password);
     }
 
-    public function posts()
+    public function posts(): hasMany
     {
         return $this->hasMany(Post::class);
     }
 
-    public function comments()
+    public function comments(): hasMany
     {
         return $this->hasMany(Comment::class);
     }
 
-    public function replies()
+    public function replies(): hasMany
     {
         return $this->hasMany(Reply::class);
     }

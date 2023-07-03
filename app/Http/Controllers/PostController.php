@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -21,13 +20,14 @@ class PostController extends Controller
         return $query->orderByDesc('created_at');
     }
 
-    public function show($id)
+    public function show(int $id)
     {
         $post = Post::with(['comments'=> fn($query) => self::orderByDesc($query),
             'comments.replies' => fn($query) => self::orderByDesc($query),
             'comments.user',
             'comments.replies.user'])
             ->find($id);
+
         return view('post.post', [
             'post'=> $post
         ]);

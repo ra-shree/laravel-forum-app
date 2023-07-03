@@ -5,7 +5,6 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\SessionsController;
-use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
