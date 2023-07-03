@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticate;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticate
 {
@@ -22,9 +23,10 @@ class User extends Authenticate
         'email_verified_at' => 'datetime',
     ];
 
-    public function setPasswordAttribute($password)
+    public function setPasswordAttribute($password): void
     {
-        $this->attributes['password'] = bcrypt($password);
+        $this->attributes['password'] = (!Hash::needsRehash($password)) ? $password : bcrypt($password);
+//        $this->attributes['password'] = bcrypt($password);
     }
 
     public function posts(): hasMany

@@ -13,7 +13,7 @@ class Post extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function scopeFilter($query, array $filters): Builder // Post::newQuery()->filter
+    public function scopeFilter($query, array $filters): void// Post::newQuery()->filter
     {
         if ($filters['search'] ?? false) {
             $query
