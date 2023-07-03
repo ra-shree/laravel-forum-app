@@ -15,13 +15,8 @@ class CommentController extends Controller
             'content' => ['required', 'max:300']
         ]);
 
-        if(auth()->check()) {
-            $user_id = auth()->user()->id;
-        } else {
-            $user_id = null;
-        }
-
-        $attributes['user_id'] = $user_id;
+        $userId = (auth()->check()) ? auth()->user()->id : null;
+        $attributes['user_id'] = $userId;
 
         Comment::create($attributes);
         return back()->with('success', 'Comment Added');

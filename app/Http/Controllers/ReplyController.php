@@ -14,13 +14,8 @@ class ReplyController extends Controller
             'content' => ['required', 'max:300']
         ]);
 
-        if(auth()->check()) {
-            $user_id = auth()->user()->id;
-        } else {
-            $user_id = null;
-        }
-
-        $attributes['user_id'] = $user_id;
+        $userId = (auth()->check()) ? auth()->user()->id : null;
+        $attributes['user_id'] = $userId;
 
         Reply::create($attributes);
         return back()->with('success', 'Reply added');

@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/register', [RegisterController::class, 'create'])->name('registerForm')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->name('register')->middleware('guest');
 
@@ -30,7 +29,6 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
 Route::get('/post', [PostController::class, 'create'])->name('post.create')->middleware('auth');
 Route::post('/post', [PostController::class, 'store'])->name('post.store')->middleware('auth');
-
 
 Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
 

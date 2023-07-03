@@ -16,7 +16,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function orderByDesc($query)
+    private function orderByDesc($query)
     {
         return $query->orderByDesc('created_at');
     }

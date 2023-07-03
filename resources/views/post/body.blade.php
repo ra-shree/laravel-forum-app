@@ -6,6 +6,6 @@
             {{ $post->body }}
         </p>
         <hr>
-        @include('comment.create', [ 'id' => $post->id])
+        @include('comment.create',  [ 'id' => $post->id])
     </div>
 </article>
